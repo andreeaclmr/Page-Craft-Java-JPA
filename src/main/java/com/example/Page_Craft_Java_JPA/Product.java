@@ -9,18 +9,22 @@ public class Product {
     @Column(nullable = false)
     private Long id;
     @Column(nullable = false)
-    private String item;
+    private String name;
     @Column(nullable = false)
-    private Boolean isBought;
-
-    public Product(String item, Boolean isBought) {
-        this.item = item;
-        this.isBought = isBought;
-    }
+    private double price;
+    @Column(nullable = false)
+    private boolean isBought;
 
     public Product() {
+
     }
 
+    public Product(String name, Long id, double price, boolean isBought) {
+        this.name = name;
+        this.id = id;
+        this.price = price;
+        this.isBought = isBought;
+    }
 
     public Long getId() {
         return id;
