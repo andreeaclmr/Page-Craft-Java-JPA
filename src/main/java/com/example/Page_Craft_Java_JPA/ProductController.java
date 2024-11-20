@@ -25,26 +25,31 @@ public class ProductController {
     @GetMapping("/{id}")
     public ResponseEntity<Product> getProductById(@PathVariable Long id) {
         Optional<Product> optionalProduct = productRepository.findById(id);
-        if (optionalProduct.isPresent()){
+        if (optionalProduct.isPresent()) {
             return new ResponseEntity<>(optionalProduct.get(), HttpStatus.OK);
-        } return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-    @PostMapping
-    public Product createProduct(@RequestBody Product producto) {
-        return productRepository.save(producto);
-    }
+//TODO
+//    @PostMapping
+//    public ResponseEntity<Product> createProduct(@RequestBody Product item) {
+//
+//
+//         Optional<Product> existingProduct = productRepository.findAll().stream().anyMatch(existingProduct -> existingProduct.getName().equalsIgnoreCase(item.getName()));
+//
+//        if (existingProduct.isPresent()) {
+//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+//        }
+//        Product savedProduct = productRepository.save(item);
+//        return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
+//    }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<?> deleteProductById(@PathVariable Long id){
+    public ResponseEntity<?> deleteProductById(@PathVariable Long id) {
         productRepository.deleteById(id);
         return new ResponseEntity<>("borrado", HttpStatus.OK);
     }
-
-
-
-
-
 
 
 }
