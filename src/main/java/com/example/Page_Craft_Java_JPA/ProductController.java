@@ -23,8 +23,11 @@ public class ProductController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Product> getProductById(@PathVariable Long id) {
-        return productRepository.findById(id);
+    public ResponseEntity<Product> getProductById(@PathVariable Long id) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+        if (optionalProduct.isPresent()){
+            return new ResponseEntity<>(optionalProduct.get(), HttpStatus.OK);
+        } return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
     @PostMapping
