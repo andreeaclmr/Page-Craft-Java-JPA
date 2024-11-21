@@ -3,13 +3,24 @@ Connects the previous front-end project Page Craft (build in JavaScript) with a 
 
 
 ## Project Description
+The project aims to continue a previously built project in JavaScript, where a template database was used.
+This time, the conexion was made through a real API, so that, when adding, editing or deleting a project from the database (built with JPA), the changes can be reflected on the front-end. 
+
+We started by building the Classes and Interfaces in Java, while also connecting the dependencies through Maven (H2, Spring Web, JPA).
+The database was connected first through the back-end, while making CRUD tests with Postman.
+
+The last step was integrating the front-end (JavaScript), connecting the database and making sure each product is correctly identified by its name, added to the list, and properly deleted, if the case.
+
 
 
 
 ## Features at a glance
-- [x] - feat 1
-- [x] - feat 2
-
+- [x] - Connects to a real API through JPA
+- [x] - JPA setup through back-end in Java
+- [x] - Each product added in JPA receives a unique ID
+- [x] - Products added in the database show up on the front-end, identified by their name
+- [x] - Removing/ Editing products in the database can be seen on the front-end
+- [x] - CRUD realised with Postman
 
 
 ## Technologies Used
@@ -65,7 +76,7 @@ Connects the previous front-end project Page Craft (build in JavaScript) with a 
 
 
 ### Trello 
-
+![Trello](https://github.com/andreeaclmr/Page-Craft-Java-JPA/blob/main/src/Trello.png)
 
 
 ## Contributors
