@@ -50,7 +50,7 @@ public class Product {
         this.price = price;
     }
 
-    public boolean isBought() {
+    public boolean getBought() {
         return isBought;
     }
 

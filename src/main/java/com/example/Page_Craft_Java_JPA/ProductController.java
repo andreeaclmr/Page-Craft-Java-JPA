@@ -31,24 +31,39 @@ public class ProductController {
         return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
-//TODO
-//    @PostMapping
-//    public ResponseEntity<Product> createProduct(@RequestBody Product item) {
-//
-//
-//         Optional<Product> existingProduct = productRepository.findAll().stream().anyMatch(existingProduct -> existingProduct.getName().equalsIgnoreCase(item.getName()));
-//
-//        if (existingProduct.isPresent()) {
-//            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
-//        }
-//        Product savedProduct = productRepository.save(item);
-//        return new ResponseEntity<>(savedProduct, HttpStatus.CREATED);
-//    }
+
+    @PostMapping
+    public ResponseEntity<Product> addProduct(@RequestBody Product product) {
+
+        Optional<Product> existingProduct = productRepository.findByNameIgnoreCase(product.getName());
+        if (existingProduct.isPresent()) {
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        productRepository.save(product);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
 
     @DeleteMapping("/{id}")
     public ResponseEntity<?> deleteProductById(@PathVariable Long id) {
         productRepository.deleteById(id);
         return new ResponseEntity<>("borrado", HttpStatus.OK);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<Product> updateProduct(@PathVariable Long id, @RequestBody Product productDetails) {
+        Optional<Product> optionalProduct = productRepository.findById(id);
+
+        if (optionalProduct.isPresent()) {
+            Product existingProduct = optionalProduct.get();
+            existingProduct.setName(productDetails.getName());
+            existingProduct.setBought(productDetails.getBought());
+            existingProduct.setPrice(productDetails.getPrice());
+
+            productRepository.save(existingProduct);
+            return new ResponseEntity<>(existingProduct, HttpStatus.OK);
+        }
+        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
     }
 
 

@@ -1,0 +1,27 @@
+[
+  {
+    "name": "bacalao",
+    "price": 1.2,
+    "bought": false
+  },
+  {
+    "name": "pan",
+    "price": 0.9,
+    "bought": false
+  },
+  {
+    "name": "leche",
+    "price": 1.1,
+    "bought": false
+  },
+  {
+    "name": "manzanas",
+    "price": 2.3,
+    "bought": false
+  },
+  {
+    "name": "arroz",
+    "price": 1.0,
+    "bought": false
+  }
+]
