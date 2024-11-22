@@ -70,6 +70,7 @@ The last step was integrating the front-end (JavaScript), connecting the databas
 
 
 ### UML Diagram
+![UML](https://github.com/andreeaclmr/Page-Craft-Java-JPA/blob/main/src/UML.png)
 
 
 ### MVP Graphic
